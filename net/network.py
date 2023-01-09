@@ -127,7 +127,7 @@ class NN:
 
         # 가중치 업데이트
         self.w += learning_rate * \
-            np.mean(x.T.dot(target_error_derivative), axis=1)[:, np.newaxis]
+            x.T.dot(target_error_derivative)
 
         if self.b is not None:
             # 편향 업데이트
