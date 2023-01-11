@@ -77,7 +77,8 @@ class NN:
             raise ValueError(
                 "Shape of true value of y and prediction of y must be equal.")
 
-        return - np.mean(y_true * np.log(y_pred+c))
+        return - np.mean(y_true * np.log(y_pred+c)+ (1.-y_true)*np.log(1.-y_pred+c))
+
 
     # 8. 정확도 연산 기능
     def get_accuracy(self, y_true: np.ndarray or pd.DataFrame,
